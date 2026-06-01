@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherri Developer Beta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #faf5f0 0%, #ffe8e0 50%, #ffd9d1 100%);
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .glow-box {
+            background: rgba(255, 245, 240, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 80px 100px;
+            border-radius: 40px;
+            box-shadow: 
+                0 0 80px rgba(255, 107, 107, 0.4),
+                0 0 120px rgba(220, 20, 60, 0.3),
+                0 0 160px rgba(255, 182, 193, 0.2),
+                inset 0 0 40px rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 182, 193, 0.5);
+            animation: subtle-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 80px rgba(255, 107, 107, 0.4),
+                    0 0 120px rgba(220, 20, 60, 0.3),
+                    0 0 160px rgba(255, 182, 193, 0.2),
+                    inset 0 0 40px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                box-shadow: 
+                    0 0 100px rgba(255, 107, 107, 0.5),
+                    0 0 150px rgba(220, 20, 60, 0.4),
+                    0 0 200px rgba(255, 182, 193, 0.3),
+                    inset 0 0 50px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            background: linear-gradient(135deg, #ff6b6b, #dc143c, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+            animation: glow-text 2s ease-in-out infinite;
+        }
+
+        @keyframes glow-text {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.6));
+            }
+        }
+
+        p {
+            font-size: 1.8em;
+            color: #ff6b6b;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            animation: fade-in-out 2.5s ease-in-out infinite;
+        }
+
+        @keyframes fade-in-out {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .accent-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6b6b, #dc143c, #ff69b4, transparent);
+            margin: 30px auto;
+            animation: expand 2s ease-in-out infinite;
+        }
+
+        @keyframes expand {
+            0%, 100% {
+                width: 80px;
+            }
+            50% {
+                width: 120px;
+            }
+        }
+
+        .floating-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff6b6b, transparent);
+            top: -100px;
+            right: -100px;
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #dc143c, transparent);
+            bottom: -50px;
+            left: -50px;
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #ff69b4, transparent);
+            top: 50%;
+            left: 10%;
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, 30px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="glow-box">
+            <h1>✨ Cherri Developer Beta ✨</h1>
+            <div class="accent-line"></div>
+            <p>Welcome to the Future</p>
+        </div>
+    </div>
+</body>
+</html>
